@@ -1,0 +1,63 @@
+Personal Finance Tracker
+A robust, modular Python application designed to help users manage their daily finances, track spending habits, and ensure data safety through persistence and backups.
+
+ Features
+Data Persistence: Saves all data to expenses.json automatically.
+
+Modular Design: Separates logic into Data Models, File Handling, and UI components.
+
+Visual Reports: Generates text-based bar charts to visualize category spending.
+
+Export Functionality: Export your history to CSV for use in Excel or Google Sheets.
+
+Data Safety: Built-in backup system creates timestamped copies of your data.
+
+Input Validation: Comprehensive handling of date formats and numerical inputs.
+
+ Project Structure
+Plaintext
+finance_tracker/
+│
+├── main.py              # Application entry point & Menu UI
+├── expenses.json        # Data storage file (Auto-generated)
+├── backups/             # Directory for timestamped backups
+└── reports/             # Exported CSV files
+ Technical Implementation
+1. The Core Engine
+Expense Class: Validates data and converts objects into dictionary format for JSON serialization.
+
+FileHandler Class: Manages the I/O operations, including error handling for missing files or corrupted JSON data.
+
+FinanceTracker Class: Contains the "business logic"—calculating monthly totals and aggregating category data.
+
+2. Error Handling
+The application uses try-except blocks to prevent crashes during:
+
+Invalid user input (e.g., entering text for an amount).
+
+File permission issues.
+
+Corrupted data files.
+
+ How To Use
+Run the App:
+
+Bash
+python main.py
+Add Expense: Enter the amount, category (e.g., Food, Transport), and a brief description.
+
+Generate Reports: Select option 4 to see a visual breakdown of where your money is going.
+
+Backup: Run option 6 before making major changes to ensure your data is stored in the /backups folder.
+
+ Sample Visual Report
+When viewing the category breakdown, the app renders a dynamic bar chart:
+
+Plaintext
+--- Category Breakdown ---
+Food       | $450.00
+Rent       | $1200.00
+Fun        |$100.00
+ Requirements
+
+Standard Libraries: json, csv, os, datetime, shutil, pathlib
